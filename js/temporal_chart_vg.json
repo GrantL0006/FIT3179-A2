@@ -1,0 +1,153 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179/main/data/World%20Energy%20Consumption%20-%20full%20temporal%20-%20reduced%20column.csv"
+    },
+    "vconcat": [
+      {
+        "width": "container",
+        "height": 150,
+        "title": {
+          "text": "Total Global Electricity Consumption (Per Capita)",
+          "subtitle": "Use this chart to select time interval"
+        },
+        "params": [
+          {
+            "name": "time_brush",
+            "select": {"type": "interval", "encodings": ["x"]}
+          }
+        ],
+        "mark": {"type": "line", "clip": true},
+        "encoding": {
+          "x": {
+            "field": "year",
+            "timeUnit": "year",
+            "axis": {"title": "Year", "format": "%Y"},
+            "scale": {"domain": [1985, 2019]}
+          },
+          "y": {
+            "aggregate": "sum",
+            "field": "per_capita_electricity",
+            "axis": {"grid": true},
+            "title": "Total Consumption (kWh)"
+          }
+        }
+      },
+      {
+        "data": {
+          "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179/main/data/Sheet%201_data-cleaned.csv"
+        },
+        "width": "container",
+        "title": {
+          "text": "Electricity Consumption Sources (Per Capita)",
+          "subtitle": "Use legend to highlight sources"
+        },
+        "encoding": {
+          "x": {
+            "field": "Year",
+            "type": "temporal",
+            "timeUnit": "year",
+            "scale": {"domain": {"param": "time_brush"}},
+            "axis": {"title": "", "tickCount": 5, "grid": false}
+          }
+        },
+        "layer": [
+          {
+            "encoding": {
+              "y": {
+                "title": "Energy Consumption (kWh)",
+                "field": "Pivot Field Values",
+                "type": "quantitative"
+              },
+              "color": {
+                "field": "Pivot Field Names",
+                "type": "nominal",
+                "legend": {"title": "Electricity Sources (kWh)"}
+              }
+            },
+            "layer": [
+              {
+                "mark": {"type": "area", "clip": true},
+                "params": [
+                  {
+                    "name": "elec_source",
+                    "select": {"type": "point", "fields": ["Pivot Field Names"]},
+                    "bind": "legend"
+                  }
+                ],
+                "encoding": {
+                  "opacity": {
+                    "condition": {"param": "elec_source", "value": 1},
+                    "value": 0.2
+                  }
+                }
+              },
+              {
+                "transform": [{"filter": {"param": "hover", "empty": false}}],
+                "mark": {"type": "area", "line": false, "point": true},
+                "encoding": {
+                  "opacity": {
+                    "condition": {"param": "elec_source", "value": 1},
+                    "value": 0.2
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "transform": [
+              {
+                "pivot": "Pivot Field Names",
+                "value": "Pivot Field Values",
+                "groupby": ["Year"]
+              }
+            ],
+            "mark": "rule",
+            "encoding": {
+              "opacity": {
+                "condition": {"value": 0.3, "param": "hover", "empty": false},
+                "value": 0
+              },
+              "tooltip": [
+                {"field": "Biofuel Elec Per Capita", "type": "quantitative"},
+                {"field": "Coal Elec Per Capita", "type": "quantitative"},
+                {"field": "Gas Elec Per Capita", "type": "quantitative"},
+                {"field": "Hydro Elec Per Capita", "type": "quantitative"},
+                {"field": "Nuclear Elec Per Capita", "type": "quantitative"},
+                {"field": "Renewables Elec Per Capita", "type": "quantitative"},
+                {"field": "Solar Elec Per Capita", "type": "quantitative"},
+                {"field": "Wind Elec Per Capita", "type": "quantitative"}
+              ]
+            },
+            "params": [
+              {
+                "name": "hover",
+                "select": {
+                  "type": "point",
+                  "fields": ["Year"],
+                  "nearest": true,
+                  "on": "mouseover",
+                  "clear": "mouseout"
+                }
+              }
+            ]
+          },
+          {
+            "data": {"values": [{"x_annotation": 2000, "y_annotation": 800000}]},
+            "mark": {"type": "text", "dx": -100, "dy": -10},
+            "encoding": {
+              "text": {"value": "Significant Increase"},
+              "x": {
+                "field": "x_annotation",
+                "type": "quantitative",
+                "timeUnit": "year",
+                "title": ""
+              },
+              "y": {"field": "y_annotation", "type": "quantitative", "title": ""},
+              "color": {"value": "black"}
+            }
+          }
+        ]
+      }
+    ]
+  }
