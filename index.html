@@ -29,6 +29,7 @@
     </div>
     <div id="energy_chart", class="energy_chart_container"></div>
     <div id="rank_chart", class="rank_chart_container"></div>
+    <div id="parallel_chart", class="parallel_chart_container"></div>
 
   </div>
 
@@ -55,8 +56,13 @@
     vegaEmbed('#rank_chart', spec4).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
-  </script>
 
+    var spec5 = "js/parallel_chart_vg.json";
+    vegaEmbed('#parallel_chart', spec5).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+ 
 </body>
 
 </html>

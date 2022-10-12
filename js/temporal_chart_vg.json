@@ -17,7 +17,7 @@
             "select": {"type": "interval", "encodings": ["x"]}
           }
         ],
-        "mark": {"type": "line", "clip": true},
+        "mark": {"type": "line", "clip": true, "color": "#ff5a00"},
         "encoding": {
           "x": {
             "field": "year",

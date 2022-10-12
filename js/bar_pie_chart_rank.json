@@ -10,8 +10,15 @@
     },
     {"filter": "datum.rank <= 10"}
   ],
-  "mark": "bar",
+  "mark": {
+    "type": "bar",
+    "color": "#ff5a00"},
   "encoding": {
+    "x": {
+      "title": "Total Electricity Consumption Per Capita",
+      "field": "per_capita_electricity",
+      "type": "quantitative"
+    },
     "y": {
       "field": "country",
       "type": "nominal",
@@ -20,8 +27,7 @@
         "field": "per_capita_electricity",
         "order": "descending"
       }
-    },
-    "x": {"field": "per_capita_electricity", "type": "quantitative"}
+    }
   },
   "title": {"text": "", "anchor": "middle"}
 }
