@@ -23,12 +23,34 @@
     },
     {
       "name": "electricity_source",
-      "value":"per_capita_electricity",
+      "value": "per_capita_electricity",
       "bind": {
         "input": "select",
-        "options": ["per_capita_electricity","biofuel_elec_per_capita", "coal_elec_per_capita"],
-        "labels": ["Total","BioFuel", "Coal"],
-        "name": "Electricity Source"
+        "options": [
+          "per_capita_electricity",
+          "biofuel_elec_per_capita",
+          "coal_elec_per_capita",
+          "gas_elec_per_capita",
+          "hydro_elec_per_capita",
+          "nuclear_elec_per_capita",
+          "oil_elec_per_capita",
+          "renewables_elec_per_capita",
+          "solar_elec_per_capita",
+          "wind_elec_per_capita"
+        ],
+        "labels": [
+          "Total",
+          "BioFuel",
+          "Coal",
+          "Gas",
+          "Hydro",
+          "Nuclear",
+          "Oil",
+          "Renewables",
+          "Solar",
+          "Wind"
+        ],
+        "name": "Electricity Source: "
       }
     }
   ],
@@ -75,37 +97,32 @@
           "as": "geo"
         },
         {"filter": "datum.year == year_selection"},
-        {"calculate": "datum[electricity_source]", "as": "Selected Energy Source"},
-      
-      {"bin":{
-        "step": 50,
-        "extent": [0,1000]
-      },
-      "field": "Selected Energy Source", "as": "magnitude"
-      }
+        {
+          "calculate": "datum[electricity_source]",
+          "as": "Selected Energy Source"
+        },
+        {
+          "bin": {"step": 10, "extent": [0, 100000000]},
+          "field": "Selected Energy Source",
+          "as": "magnitude"
+        }
       ],
-      
       "mark": {"type": "geoshape", "stroke": "white"},
       "encoding": {
         "shape": {"field": "geo", "type": "geojson"},
         "color": {
           "field": "magnitude",
           "type": "quantitative",
-          "scale": {
-            "type": "symlog",
-            "scheme": "yelloworangered"
-          },
+          "scale": {"type": "quantize", "scheme": "yelloworangered"},
           "legend": {
-            "title": "Total Electricity Consumption Per. Capita (kWh)",
+            "title": "Selected Electricity Consumption Per. Capita (kWh)",
             "titleLimit": 320,
             "titleFontSize": 13,
             "direction": "horizontal",
             "orient": "bottom"
           }
         },
-        "tooltip": [
-          {"field": "country", "type": "nominal", "title": "Country"}
-        ]
+        "tooltip": [{"field": "country", "type": "nominal", "title": "Country"}]
       }
     }
   ]
