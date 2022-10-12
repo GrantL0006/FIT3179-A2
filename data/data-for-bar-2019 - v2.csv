@@ -1,4 +1,4 @@
-﻿iso_code,country,year,biofuel_elec_per_capita,coal_elec_per_capita,gas_elec_per_capita,hydro_elec_per_capita,nuclear_elec_per_capita,oil_elec_per_capita,renewables_elec_per_capita,solar_elec_per_capita,wind_elec_per_capita,per_capita_electricity
+﻿iso_code,country,year,biofuel,coal,gas,hydro,nuclear,oil,renewables,solar,wind,total
 ISL,Iceland,2019,0,0,0,39305.044,0,8.319,56819.566,0,18.947,56827.885
 NOR,Norway,2019,83.473,0,438.981,22989.939,0,0,24103.86,2.417,1028.032,24542.841
 BHR,Bahrain,2019,0,0,17110.87,0,0,16.492,5.637,5.027,0.609,17132.998
