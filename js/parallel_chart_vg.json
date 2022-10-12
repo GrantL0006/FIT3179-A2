@@ -1,0 +1,133 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/js/2019-data-parallel-use.json"
+    },
+    "width": 1000,
+    "height": 300,
+    "transform": [
+      {"filter": "datum['biofuel']"},
+      {"window": [{"op": "count", "as": "index"}]},
+      {"fold": ["biofuel", "coal", "gas", "hydro","nuclear","oil","renewables","solar","wind"]},
+      {
+        "joinaggregate": [
+          {"op": "min", "field": "value", "as": "min"},
+          {"op": "max", "field": "value", "as": "max"}
+        ],
+        "groupby": ["key"]
+      },
+      {
+        "calculate": "(datum.value - datum.min) / (datum.max-datum.min)",
+        "as": "norm_val"
+      },
+      {
+        "calculate": "(datum.min + datum.max) / 2",
+        "as": "mid"
+      }
+    ],
+    "layer": [{
+      "mark": {"type": "rule", "color": "#ccc"},
+      "encoding": {
+        "detail": {"aggregate": "count"},
+        "x": {"field": "key"}
+      }
+    }, {
+      "mark": "line",
+      "encoding": {
+        "color": {"type": "nominal", "field": "country"},
+        "detail": {"type": "nominal", "field": "index"},
+        "opacity": {"value": 0.3},
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"type": "quantitative", "field": "norm_val", "axis": null},
+        "tooltip": [{
+          "type": "nominal",
+          "title": "Country",
+          "field": "country"
+          },{
+          "type": "quantitative",
+          "title": "BioFuel (kWh): ",
+          "field": "biofuel"
+        }, {
+          "type": "quantitative",
+          "title": "Coal (kWh): ",
+          "field": "coal"
+        }, {
+          "type": "quantitative",
+          "title": "Gas (kWh): ",
+          "field": "gas"
+        }, {
+          "type": "quantitative",
+          "title": "Hydro (kWh): ",
+          "field": "hydro"
+        },{
+          "type": "quantitative",
+          "title": "Nuclear (kWh): ",
+          "field": "nuclear"
+        },{
+          "type": "quantitative",
+          "title": "Oil (kWh): ",
+          "field": "oil"
+        },{
+          "type": "quantitative",
+          "title": "Renewables (kWh): ",
+          "field": "renewables"
+        },{
+          "type": "quantitative",
+          "title": "Solar (kWh): ",
+          "field": "solar"
+        },{
+          "type": "quantitative",
+          "title": "Wind (kWh): ",
+          "field": "wind"
+        }]
+      }
+    }, {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 0}
+      },
+      "layer": [{
+        "mark": {"type": "text", "style": "label"},
+        "encoding": {
+          "text": {"aggregate": "max", "field": "max"}
+        }
+      }, {
+        "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+      }]
+    }, {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 150}
+      },
+      "layer": [{
+        "mark": {"type": "text", "style": "label"},
+        "encoding": {
+          "text": {"aggregate": "min", "field": "mid"}
+        }
+      }, {
+        "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+      }]
+    }, {
+      "encoding": {
+        "x": {"type": "nominal", "field": "key"},
+        "y": {"value": 300}
+      },
+      "layer": [{
+        "mark": {"type": "text", "style": "label"},
+        "encoding": {
+          "text": {"aggregate": "min", "field": "min"}
+        }
+      }, {
+        "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
+      }]
+    }],
+    "config": {
+      "axisX": {"domain": false, "labelAngle": 0, "tickColor": "#ccc", "title": null},
+      "view": {"stroke": null},
+      "style": {
+        "label": {"baseline": "middle", "align": "right", "dx": -5},
+        "tick": {"orient": "horizontal"}
+      }
+    }
+  }
+  
