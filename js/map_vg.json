@@ -122,7 +122,9 @@
             "orient": "bottom"
           }
         },
-        "tooltip": [{"field": "country", "type": "nominal", "title": "Country"}]
+        "tooltip": [
+          {"field": "country", "type": "nominal", "title": "Country"},
+          {"field": "Selected Energy Source", "type": "nominal", "title": "Selected Electricity Consumption Per. Capita(kWh)"}]
       }
     }
   ]
