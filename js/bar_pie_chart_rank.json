@@ -13,12 +13,12 @@
         {
         "window":[{
           "op": "rank",
-          "as": "rank"
+          "as": "ranking"
         }],
         "sort": [{"field": "per_capita_electricity", "order":"descending"}]
       },
       {
-        "filter": "datum.rank <= 10"
+        "filter": "datum.ranking <= 1" 
       }
       ],
       "mark": "bar",
