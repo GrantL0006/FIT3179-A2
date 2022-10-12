@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179/main/data/World%20Energy%20Consumption%20-%20full%20temporal%20-%20reduced%20column.csv"
+  },
+"title": {
+        "text": "Total Global Electricity Consumption (Per Capita)",
+        "subtitle": "Use this chart to select time interval"
+      },
+      "transform": [{
+        "filter": "datum.year == 2019"
+        },
+        {
+        "window":[{
+          "op": "rank",
+          "as": "rank"
+        }],
+        "sort": [{"field": "per_capita_electricity", "order":"descending"}]
+      },
+      {
+        "filter": "datum.rank <= 10"
+      }
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "per_capita_electricity",
+          "type": "quantitative"
+          },
+        "y": {
+          "field": "country", 
+          "type": "nominal",
+          "sort":{
+            "field":"per_capita_electricity",
+            "order": "descending"
+          }} 
+      }
+    }

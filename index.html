@@ -28,7 +28,7 @@
       </div>
     </div>
     <div id="energy_chart", class="energy_chart_container"></div>
-
+    <div id="rank_chart", class="rank_chart_container"></div>
 
   </div>
 
@@ -42,7 +42,7 @@
   <script type="text/javascript">
 
     var spec2 = "js/map_vg.json";
-    vegaEmbed('#energy_map', spec2, {"actions":false}).then(function (result) {
+    vegaEmbed('#energy_map', spec2).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
@@ -51,6 +51,10 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
+    var spec4 = "js/bar_pie_chart_rank.json";
+    vegaEmbed('#rank_chart', spec4).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
   </script>
 
 </body>
