@@ -15,22 +15,58 @@
   <div class="fixed_page">
     <h1>Global Energy Consumption</h1>
     <div id="energy_map", class="energy_map_container"></div>
-    <div class="row">
-      <div class="column">
+    <div class="grid-1">
+      <div class="column-1">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus ex, congue id dapibus eget, consectetur eget lorem. Aliquam eu enim sollicitudin orci suscipit suscipit ut ut eros. Praesent efficitur odio ac pharetra vulputate. Etiam non nulla at justo blandit malesuada. Nunc a justo ut nibh elementum maximus ut eu eros. Duis blandit rhoncus augue, et hendrerit leo mollis vel. In pretium erat lacinia neque iaculis faucibus. Fusce tincidunt malesuada lectus quis molestie. Suspendisse consectetur at magna fermentum efficitur.
         </p>
       </div>
-      <div class="column">
+      <div class="column-2">
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus ex, congue id dapibus eget, consectetur eget lorem. Aliquam eu enim sollicitudin orci suscipit suscipit ut ut eros. Praesent efficitur odio ac pharetra vulputate. Etiam non nulla at justo blandit malesuada. Nunc a justo ut nibh elementum maximus ut eu eros. Duis blandit rhoncus augue, et hendrerit leo mollis vel. In pretium erat lacinia neque iaculis faucibus. Fusce tincidunt malesuada lectus quis molestie. Suspendisse consectetur at magna fermentum efficitur. Maecenas consequat nunc nisi.
         </p>       
       </div>
     </div>
     <div id="energy_chart", class="energy_chart_container"></div>
-    <div id="rank_chart", class="rank_chart_container"></div>
+
+    <div class="grid-1">
+      <div class="column-1">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus ex, congue id dapibus eget, consectetur eget lorem. Aliquam eu enim sollicitudin orci suscipit suscipit ut ut eros. Praesent efficitur odio ac pharetra vulputate. Etiam non nulla at justo blandit malesuada. Nunc a justo ut nibh elementum maximus ut eu eros. Duis blandit rhoncus augue, et hendrerit leo mollis vel. In pretium erat lacinia neque iaculis faucibus. Fusce tincidunt malesuada lectus quis molestie. Suspendisse consectetur at magna fermentum efficitur.
+        </p>
+      </div>
+      <div class="column-2">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus ex, congue id dapibus eget, consectetur eget lorem. Aliquam eu enim sollicitudin orci suscipit suscipit ut ut eros. Praesent efficitur odio ac pharetra vulputate. Etiam non nulla at justo blandit malesuada. Nunc a justo ut nibh elementum maximus ut eu eros. Duis blandit rhoncus augue, et hendrerit leo mollis vel. In pretium erat lacinia neque iaculis faucibus. Fusce tincidunt malesuada lectus quis molestie. Suspendisse consectetur at magna fermentum efficitur. Maecenas consequat nunc nisi.
+        </p>       
+      </div>
+    </div>
     <div id="parallel_chart", class="parallel_chart_container"></div>
-    <div id="heat_map", class="heat_map_container"></div>
+    <div class="grid-2">
+      <div class="column-2-left-full">
+        <div id="heat_map", class="heat_map_container"></div>
+      </div>
+      <div class="column-2-right-top">
+        <h1 class="title-2">Section Title</h1>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus ex, congue id dapibus eget, consectetur eget lorem. Aliquam eu enim sollicitudin orci suscipit suscipit ut ut eros. Praesent efficitur odio ac pharetra vulputate. Etiam non nulla at justo blandit malesuada. Nunc a justo ut nibh elementum maximus ut eu eros. Duis blandit rhoncus augue, et hendrerit leo mollis vel. In pretium erat lacinia neque iaculis faucibus. Fusce tincidunt malesuada lectus quis molestie. Suspendisse consectetur at magna fermentum efficitur. Maecenas consequat nunc nisi.
+        </p>  
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus ex, congue id dapibus eget, consectetur eget lorem. Aliquam eu enim sollicitudin orci suscipit suscipit ut ut eros. Praesent efficitur odio ac pharetra vulputate. Etiam non nulla at justo blandit malesuada. Nunc a justo ut nibh elementum maximus ut eu eros. Duis blandit rhoncus augue, et hendrerit leo mollis vel. In pretium erat lacinia neque iaculis faucibus. Fusce tincidunt malesuada lectus quis molestie. Suspendisse consectetur at magna fermentum efficitur. Maecenas consequat nunc nisi.
+        </p>   
+      </div>
+      <div class="column-2-right-bot">
+        <div class="sub-row-bar">
+          <div class="sub-row-bar-1">
+            <div id="rank_chart", class="rank_chart_container"></div>
+          </div>
+          <div class="sub-row-bar-2">
+            <div id="rank_chart", class="rank_chart_container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="scatterplot", class="scatterplot_container"></div>
 
   </div>
@@ -55,7 +91,7 @@
     }).catch(console.error);
 
     var spec4 = "js/bar_pie_chart_rank.json";
-    vegaEmbed('#rank_chart', spec4).then(function (result) {
+    vegaEmbed('#rank_chart', spec4,{ "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 

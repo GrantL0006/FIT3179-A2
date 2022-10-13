@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega/v5.json",
-    "width": 440,
-    "height": 2400,
-    "padding": 5,
+    "width": 450,
+    "height": 1000,
   
     "title": {
       "text": "Global Carbon Emission",
@@ -15,7 +14,7 @@
     "data": [
       {
         "name": "emmission",
-        "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/data/emission-pivot-data.csv",
+        "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/data/emission-pivot-data-mod.csv",
         "format": {"type": "csv", 
         "parse": {
           "Pivot_Field_Values": "number",
@@ -38,10 +37,9 @@
       },
       {
         "name": "color",
-        "type": "symlog",
+        "type": "quantile", 
         "range": {"scheme": "YellowOrangeRed"},
-        "domain": {"data": "emmission", "field": "Pivot_Field_Values"},
-        "zero": false, "nice": true
+        "domain": {"data": "emmission", "field": "Pivot_Field_Values"}
       }
     ],
   

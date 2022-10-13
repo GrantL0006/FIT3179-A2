@@ -3,6 +3,7 @@
     "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/data/data-for-bar-2019.csv",
     "format": {"type": "csv", "parse": {"per_capita_electricity": "number"}}
   },
+  "width": "container",
   "transform": [
     {
       "window": [{"op": "rank", "as": "rank"}],

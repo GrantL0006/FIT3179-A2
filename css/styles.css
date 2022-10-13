@@ -1,6 +1,6 @@
 .fixed_page{
-	width: 900px;
-	margin: auto;
+	width: 1100px; 
+	margin: auto; 
 	padding: 50px;
 	padding-top: 30px;
 }
@@ -15,14 +15,18 @@
 }
 
 .rank_chart_container {
-	width: 75%;
+	width: 100%; 
 }
 
 .parallel_chart_container {
-	width: 100%;
+	width: 105%;
 }
 
 .heat_map_container {
+	width: 100%;
+}
+
+.scatterplot_container{
 	width: 100%;
 }
 
@@ -36,11 +40,57 @@ p{
 	text-align: justify;
 }
 
-.row {
-	display: flex;
+.grid-1 {
+	display: grid;
+	grid-template-columns: auto auto;
   }
   
-  .column {
-	flex: 50%;
-	padding: 20px;
+.column-1 {
+	grid-column: 1;
+	padding: 10px;
+}
+
+.column-2 {
+	grid-column: 2;
+	padding: 10px;
+}
+
+
+.grid-2 {
+	margin-top: 40px;
+	display: grid;
+	grid-template-columns: 60% auto;
+	grid-template-rows: 45% auto; 
   }
+  
+.column-2-left-full {
+	grid-column: 1;
+	grid-row: 1 /span 2;
+}
+
+.column-2-right-top {
+	grid-column: 2;
+	grid-row: 1;
+}
+
+.column-2-right-bot {
+	grid-column: 2;
+	grid-row: 2;
+}
+
+.title-2 {
+	text-align: left;
+}
+
+.sub-row-bar-{
+	display: grid;
+	grid-template-rows: 50% auto; 
+}
+
+.sub-row-bar-1{
+	grid-row: 1;
+}
+
+.sub-row-bar-2{
+	grid-row: 2;
+}
