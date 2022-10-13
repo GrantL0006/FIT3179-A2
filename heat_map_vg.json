@@ -1,0 +1,97 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "description": "A heatmap showing average daily temperatures in Seattle for each hour of the day.",
+    "width": 440,
+    "height": 2400,
+    "padding": 5,
+  
+    "title": {
+      "text": "Seattle Annual Temperatures",
+      "anchor": "middle",
+      "fontSize": 16,
+      "frame": "group",
+      "offset": 4
+    },
+  
+    "signals": [
+      {
+        "name": "reverse", "value": false, "bind": {"input": "checkbox"}
+      }
+    ],
+  
+    "data": [
+      {
+        "name": "emmission",
+        "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/data/emission-pivot-data.csv",
+        "format": {"type": "csv", 
+        "parse": {
+          "Pivot Field Values": "number",
+          "Year": "date" }}
+      }
+    ],
+    
+    "scales": [
+      {
+        "name": "x",
+        "type": "time",
+        "domain": {"data": "emmission", "field": "Year"},
+        "range": "width"
+      },
+      {
+        "name": "y",
+        "type": "band",
+        "domain": {"data": "emmission","field": "Country"},
+        "range": "height"
+      },
+      {
+        "name": "color",
+        "type": "symlog",
+        "range": {"scheme": "YellowOrangeRed"},
+        "domain": {"data": "emmission", "field": "Pivot Field Values"},
+        "reverse": {"signal": "reverse"},
+        "zero": false, "nice": true
+      }
+    ],
+  
+    "axes": [
+      {"orient": "bottom", "scale": "x", "domain": false, "title": "Year"},
+      {
+        "orient": "left", "scale": "y", "domain": false, "title": "Country"
+        
+      }
+    ],
+  
+    "legends": [
+      {
+        "fill": "color",
+        "type": "gradient",
+        "title": "Avg. Temp (°C)",
+        "direction": "horizontal",
+        "orient": "top",
+        "titleFontSize": 12,
+        "titlePadding": 5,
+        "gradientLength": {"signal": "width"}
+      }
+    ],
+  
+    "marks": [
+      {
+        "type": "rect",
+        "from": {"data": "emmission"},
+        "encode": {
+          "enter": {
+            "x": {"scale": "x", "timeUnit": "year","field": "Year"}, 
+            "y": {"scale": "y", "field": "Country"},
+            "width": {"value": 15},
+            "height": {"scale": "y", "band": 1},
+            "tooltip": [
+              {"signal": "{\"Country\": datum.Country, \"Year\": date(datum.Year)}" }
+            ]
+          },
+          "update": {
+            "fill": {"scale": "color", "field": "Pivot Field Values"}
+          }
+        }
+      }
+    ]
+    }
