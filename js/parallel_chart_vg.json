@@ -3,7 +3,7 @@
     "data": {
       "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/js/2019-data-parallel-use.json"
     },
-    "width": 1000,
+    "width": "container",
     "height": 300,
     "title": "Energy Consumption Parallel Plot",
     "transform": [
@@ -102,7 +102,7 @@
       {
         "encoding": {
           "x": {"type": "nominal", "field": "key"},
-          "y": {"value": 150}
+          "y": {"value": 300}
         },
         "layer": [
           {
