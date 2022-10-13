@@ -61,7 +61,7 @@
             <div id="rank_chart", class="rank_chart_container"></div>
           </div>
           <div class="sub-row-bar-2">
-            <div id="rank_chart", class="rank_chart_container"></div>
+            <div id="pie_chart", class="pie_chart_container"></div>
           </div>
         </div>
       </div>
@@ -81,35 +81,39 @@
   <script type="text/javascript">
 
     var spec2 = "js/map_vg.json";
-    vegaEmbed('#energy_map', spec2).then(function (result) {
+    vegaEmbed('#energy_map', spec2,{"actions": false}).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     var spec3 = "js/temporal_chart_vg.json";
-    vegaEmbed('#energy_chart', spec3).then(function (result) {
+    vegaEmbed('#energy_chart', spec3,{"actions": false}).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     var spec4 = "js/bar_pie_chart_rank.json";
-    vegaEmbed('#rank_chart', spec4,{ "actions": false }).then(function (result) {
+    vegaEmbed('#rank_chart', spec4,{"actions": false}).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     var spec5 = "js/parallel_chart_vg.json";
-    vegaEmbed('#parallel_chart', spec5).then(function (result) {
+    vegaEmbed('#parallel_chart', spec5,{"actions": false}).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
     var spec6 = "js/heat_map_vg.json";
-    vegaEmbed('#heat_map', spec6).then(function (result) {
+    vegaEmbed('#heat_map', spec6,{"actions": false}).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
-    var spec6 = "js/consumption_production_scatter.json";
-    vegaEmbed('#scatterplot', spec6).then(function (result) {
+    var spec7 = "js/consumption_production_scatter.json";
+    vegaEmbed('#scatterplot', spec7,{"actions": false}).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
+    var spec8 = "js/global_elec_source_pie_vg.json";
+    vegaEmbed('#pie_chart', spec8,{"actions": false}).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
   </script>
  
 </body>

@@ -1,34 +1,57 @@
 {
-    "data": {
-      "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/data/energy-production-consumption-2010-2019.csv",
-      "format": {"type": "csv", "parse": {"per_capita_electricity": "number"}}
-    },
-    "width": "container",
-    "transform": [
-      {
-        "window": [{"op": "rank", "as": "rank"}],
-        "sort": [{"field": "per_capita_electricity", "order": "descending"}]
-      },
-      {"filter": "datum.rank <= 10"}
-    ],
-    "mark": {
-      "type": "bar",
-      "color": "#ff5a00"},
-    "encoding": {
-      "x": {
-        "title": "Total Electricity Consumption Per Capita",
-        "field": "per_capita_electricity",
-        "type": "quantitative"
-      },
-      "y": {
-        "field": "country",
-        "type": "nominal",
-        "sort": {
-          "op": "mean",
-          "field": "per_capita_electricity",
-          "order": "descending"
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A simple pie chart with embedded data.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/data/elec-source-perc-cleaned.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Percentage": "number"
       }
+    }
+  },
+  "title": {
+    "text": "Electricity Generation Methods"
+  },
+  "width": "container",
+  "height": 250,
+  "mark": "arc",
+  "encoding": {
+    "theta": {
+      "field": "Percentage",
+      "type": "quantitative"
     },
-    "title": {"text": "", "anchor": "middle"}
+    "color": {
+      "field": "Type",
+      "type": "nominal"
+    },
+    "order": {
+      "field": "Percentage",
+      "type": "quantitative",
+      "sort": "descending"
+    },
+    "tooltip": [
+      {
+        "field": "Type",
+        "type": "nominal",
+        "title": "Source Type"
+      },
+      {
+        "field": "Percentage",
+        "type": "quantitative",
+        "title": "Percentage (%)",
+        "format": ".2f"
+      }
+    ]
+  },
+  "config": {
+    "legend": {
+      "orient": "left"
+    },
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
   }
+}
