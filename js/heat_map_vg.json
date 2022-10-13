@@ -4,7 +4,7 @@
     "height": 1000,
   
     "title": {
-      "text": "Global Carbon Emission",
+      "text": "Global Carbon Emission from Electricity Generation",
       "anchor": "middle",
       "fontSize": 16,
       "frame": "group",
