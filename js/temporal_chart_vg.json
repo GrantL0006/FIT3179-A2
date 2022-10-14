@@ -109,14 +109,14 @@
                 "value": 0
               },
               "tooltip": [
-                {"field": "Biofuel Elec Per Capita", "type": "quantitative"},
-                {"field": "Coal Elec Per Capita", "type": "quantitative"},
-                {"field": "Gas Elec Per Capita", "type": "quantitative"},
-                {"field": "Hydro Elec Per Capita", "type": "quantitative"},
-                {"field": "Nuclear Elec Per Capita", "type": "quantitative"},
-                {"field": "Renewables Elec Per Capita", "type": "quantitative"},
-                {"field": "Solar Elec Per Capita", "type": "quantitative"},
-                {"field": "Wind Elec Per Capita", "type": "quantitative"}
+                {"field": "Biofuel Elec Per Capita", "type": "quantitative", "format": ","},
+                {"field": "Coal Elec Per Capita", "type": "quantitative", "format": ","},
+                {"field": "Gas Elec Per Capita", "type": "quantitative", "format": ","},
+                {"field": "Hydro Elec Per Capita", "type": "quantitative", "format": ","},
+                {"field": "Nuclear Elec Per Capita", "type": "quantitative", "format": ","},
+                {"field": "Renewables Elec Per Capita", "type": "quantitative", "format": ","},
+                {"field": "Solar Elec Per Capita", "type": "quantitative", "format": ","},
+                {"field": "Wind Elec Per Capita", "type": "quantitative", "format": ","}
               ]
             },
             "params": [
@@ -141,7 +141,8 @@
                 "field": "x_annotation",
                 "type": "quantitative",
                 "timeUnit": "year",
-                "title": ""
+                "title": "",
+                "axis": null
               },
               "y": {"field": "y_annotation", "type": "quantitative", "title": ""},
               "color": {"value": "black"}

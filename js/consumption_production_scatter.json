@@ -58,9 +58,9 @@
       "opacity": {"value": 0.8},
       "tooltip":[
         {"field": "country", "type": "nominal", "title": "Country"},
-        {"field": "population", "type": "quantitative", "title": "Population"},
-        {"field": "total_production", "type": "quantitative", "title": "Production (TWh)"},
-        {"field": "total_consumption", "type": "quantitative", "title": "Consumption (TWh)"},
+        {"field": "population", "type": "quantitative", "title": "Population", "format": ","},
+        {"field": "total_production", "type": "quantitative", "title": "Production (TWh)", "format": ","},
+        {"field": "total_consumption", "type": "quantitative", "title": "Consumption (TWh)", "format": ","},
         {"field": "ratio", "type": "quantitative", "title": "Energy Ratio", "format": ".2f"}
       ]
     }

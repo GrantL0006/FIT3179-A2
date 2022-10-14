@@ -60,7 +60,7 @@
         "field": "per_capita_electricity",
         "type": "quantitative",
         "title": "Electricity Usage (TWh)",
-        "format": ".2f"
+        "format": ",.2f"
       }
     ]
   }
