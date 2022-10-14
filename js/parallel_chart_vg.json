@@ -53,7 +53,7 @@
           "condition": {
             "param": "highlight",
             "value": "orangered",
-            "empty": false
+            "empty": true
           },
           "scale": {"range": ["lightgrey"]}
         },
