@@ -105,7 +105,13 @@
             "mark": "rule",
             "encoding": {
               "x":{
-                "axis": {"domain": false}
+                "field": "Year",
+                "axis": {
+                  "domainColor": "white",
+                  "labelColor": "white",
+                  "tickColor": "white"
+
+                }
               },
               "opacity": {
                 "condition": {"value": 0.3, "param": "hover", "empty": false},

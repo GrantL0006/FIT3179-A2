@@ -37,7 +37,7 @@
       {"calculate": "datum.total_consumption/datum.total_production", "as": "ratio"}],
   
     "mark": {"type":"circle",
-    "color": "#fec460"},
+    "color": "#fc7335"},
     "encoding": {
       "x": {
         "field": "total_production",
