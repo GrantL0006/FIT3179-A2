@@ -1,25 +1,25 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
-    "data": {
-      "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/data/energy-production-consumption-2010-2019.csv",
-      "format": {
-        "type": "csv",
-        "parse": {
-          "total_production": "number",
-          "total_consumption": "number",
-          "population": "number"
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A scatterplot showing horsepower and miles per gallons for various cars.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/GrantL0006/FIT3179-A2/main/data/energy-production-consumption-2010-2019.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "total_production": "number",
+        "total_consumption": "number",
+        "population": "number"
       }
-    },
-    "width": "container",
-    "height": 600,
-    "title":{
-      "text": "Energy Consumption and Production",
-      "subtitle": "Data Presented in Log-Log Scale"
-    },
-    "params": [
-      {
+    }
+  },
+  "width": "container",
+  "height": 600,
+  "title": {
+    "text": "Energy Consumption and Production",
+    "subtitle": "Data Presented in Log-Log Scale"
+  },
+  "params": [
+    {
       "name": "year_selection",
       "value": 2019,
       "bind": {
@@ -29,42 +29,96 @@
         "step": 1,
         "name": "Year Selection: "
       }
-      }
-    ],
-    "transform": [
-      {"filter": "datum.year == year_selection"},
-      {"filter": "datum.total_production > 0"}, {"filter": "datum.total_consumption> 0"},
-      {"calculate": "datum.total_consumption/datum.total_production", "as": "ratio"}],
-  
-    "mark": {"type":"circle",
-    "color": "#fc7335"},
-    "encoding": {
-      "x": {
-        "field": "total_production",
-        "type": "quantitative",
-        "title": "Energy Production (TWh)",
-        "scale": {"type": "log"}
-      },
-      "y": {
-        "field": "total_consumption",
-        "type": "quantitative",
-        "title": "Energy Consumption (TWh)",
-        "scale": {"type": "log"}
-      },
-      "size": {"field": "population", "type": "quantitative","scale":{
-        "type": "threshold",
-        "domain":[1000000, 10000000, 50000000, 100000000, 500000000],
-        "range":[5, 50, 100, 250, 400, 700]
-      },
-    "legend":{"format": ".1s"}},
-      "opacity": {"value": 0.8},
-      "tooltip":[
-        {"field": "country", "type": "nominal", "title": "Country"},
-        {"field": "population", "type": "quantitative", "title": "Population", "format": ",.0f"},
-        {"field": "total_production", "type": "quantitative", "title": "Production (TWh)", "format": ",.2f"},
-        {"field": "total_consumption", "type": "quantitative", "title": "Consumption (TWh)", "format": ",.2f"},
-        {"field": "ratio", "type": "quantitative", "title": "Energy Ratio", "format": ".2f"}
-      ]
     }
-  }
-  
+  ],
+  "transform": [
+    {"filter": "datum.year == year_selection"},
+    {"filter": "datum.total_production > 0"},
+    {"filter": "datum.total_consumption> 0"},
+    {
+      "calculate": "datum.total_consumption/datum.total_production",
+      "as": "ratio"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "total_production",
+      "type": "quantitative",
+      "title": "Energy Production (TWh)",
+      "scale": {"type": "log","domain": [0.1, 100000]} 
+    },
+    "y": {
+      "field": "total_consumption",
+      "type": "quantitative",
+      "title": "Energy Consumption (TWh)",
+      "scale": {"type": "log","domain": [10, 100000]} 
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "circle", "color": "#fc7335"},
+      "encoding": {
+        "size": {
+          "field": "population",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+            "range": [5, 50, 100, 250, 400, 700]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "opacity": {"value": 0.8},
+        "tooltip": [
+          {"field": "country", "type": "nominal", "title": "Country"},
+          {
+            "field": "population",
+            "type": "quantitative",
+            "title": "Population",
+            "format": ",.0f"
+          },
+          {
+            "field": "total_production",
+            "type": "quantitative",
+            "title": "Production (TWh)",
+            "format": ",.2f"
+          },
+          {
+            "field": "total_consumption",
+            "type": "quantitative",
+            "title": "Consumption (TWh)",
+            "format": ",.2f"
+          },
+          {
+            "field": "ratio",
+            "type": "quantitative",
+            "title": "Energy Ratio",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 10,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "country", "type": "nominal"},
+        "color": {"value":"black"},
+        "opacity":{
+          "condition":{
+            "test": "datum['country']=='China' || datum['country']=='United States of America'|| datum['country']=='Australia'|| datum['country']=='Japan' || datum['country']=='New Zealand'|| datum['country']=='South Korea'|| datum['country']=='United Kingdom' || datum['country']=='Italy' || datum['country']=='Canada' || datum['country']=='Russia' ",
+            "value": 1
+        },
+        "value": 0
+        }
+
+      }
+    }
+  ]
+}
