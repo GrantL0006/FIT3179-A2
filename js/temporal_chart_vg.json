@@ -112,14 +112,14 @@
                 "value": 0
               },
               "tooltip": [
-                {"field": "Biofuel Elec Per Capita", "type": "quantitative", "format": ","},
-                {"field": "Coal Elec Per Capita", "type": "quantitative", "format": ","},
-                {"field": "Gas Elec Per Capita", "type": "quantitative", "format": ","},
-                {"field": "Hydro Elec Per Capita", "type": "quantitative", "format": ","},
-                {"field": "Nuclear Elec Per Capita", "type": "quantitative", "format": ","},
-                {"field": "Renewables Elec Per Capita", "type": "quantitative", "format": ","},
-                {"field": "Solar Elec Per Capita", "type": "quantitative", "format": ","},
-                {"field": "Wind Elec Per Capita", "type": "quantitative", "format": ","}
+                {"field": "Biofuel Elec Per Capita", "type": "quantitative", "format": ",.2f"},
+                {"field": "Coal Elec Per Capita", "type": "quantitative", "format": ",.2f"},
+                {"field": "Gas Elec Per Capita", "type": "quantitative", "format": ",.2f"},
+                {"field": "Hydro Elec Per Capita", "type": "quantitative", "format": ",.2f"},
+                {"field": "Nuclear Elec Per Capita", "type": "quantitative", "format": ",.2f"},
+                {"field": "Renewables Elec Per Capita", "type": "quantitative", "format": ",.2f"},
+                {"field": "Solar Elec Per Capita", "type": "quantitative", "format": ",.2f"},
+                {"field": "Wind Elec Per Capita", "type": "quantitative", "format": ",.2f"}
               ]
             },
             "params": [
