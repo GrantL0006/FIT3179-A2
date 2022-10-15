@@ -8,6 +8,13 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Khand&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
 
 </head>
 
@@ -19,7 +26,7 @@
       <div class="column-1-title">
         <div class="title-sub-div">
           <div class="number">
-            <div class="square"><span class="titlenumber">1</span></div>
+            <div class="square"><span class="titlenumber-1">1</span></div>
           </div>
           <div class="subtitle">
             <h2>What Is Electricity Consumption?</h2>
@@ -120,7 +127,7 @@
           </div>
         </div>
         <hr>
-      </div> 
+      </div>
       <div class="vertical-2">
         <div id="parallel_chart" , class="parallel_chart_container"></div>
       </div>
@@ -207,50 +214,44 @@
       <div class="vertical-1">
         <div class="title-sub-div-2">
           <div class="number">
-            <div class="square"><span class="titlenumber">4</span></div>
+            <div class="square"><span class="titlenumber">6</span></div>
           </div>
           <div class="subtitle">
-            <h2>Who Is the Primary User of Each Production Method?</h2>
+            <h2>Do Countries Produce Enough Electricity?</h2>
           </div>
         </div>
         <hr>
-      </div> 
+      </div>
       <div class="vertical-2">
+        <div id="scatterplot" , class="scatterplot_container"></div>
+      </div>
+      <div class="vertical-3">
         <div class="ver-3-col-1">
           <p>
-            To understand which country is the primary user of each respective energy production method, this can be
-            found in the parallel plot depicted above. The parallel plot utilizes the data of energy consumption based
-            on different electricity sources, which can consequently used to determine the electricity generation
-            methods used in the country. For example, Australia has the highest electricity consumption portion coming
-            from coal as shown in the parallel plot, which indicating coal electricity generation is the dominant method
-            used in the country. Consequently, when closely examine, Australia would not be the major player in other
-            electricity sources.
-            The parallel plot enables reader to quickly understand which country are the primary users of each
-            respective electricity source.
+            Not all country consumes electricity the same amount as how much they are capable in producing. Some
+            countries rely on importation from other countries to have enough resources for electricity production.
+            While some countries have abundant natural resources to produce electricity, which enable them to export
+            these resources to other countries in exchange of economic benefits. The Energy Consumption and Production
+            scatterplot investigates the countries' capability to self-sufficiently produce electricity. As such, a
+            parameter known as Energy Ratio is defined in the plot. The above plot is presented in a log-log scale and 
+            an interactive feature to explore the variations in countries electrical consumption and production.
           </p>
         </div>
         <div class="ver-3-col-2">
           <p>
-            The parallel chart presented are based on the most recent data collected in 2019. It features some
-            interactivity where the primary purpose is to show who are the major players in each respective energy
-            sources. By hovering at the intersection points between the lines and axes, a detailed electricity
-            consumption of the hovered country and sources will be provided. In addition, to examine how the country of
-            interested performs in other electricity sources. By clicking the lines will highlight the line of interest
-            to quickly grasp the selected country electricity source distributions.
+            Energy ratio is calculated by dividing total national electricity consumption by the total national
+            electricity production capability. Countries with energy ratio lower than 1 meaning the country has the
+            capability to produce more electricity than what is consumed in the nation. This implying the country has
+            more energy resources. While countries with energy ratio above 1 meaning the country has limited resources
+            to produce the required electrical consumption, meaning importation of energy resources are needed. For
+            example, Australia ha energy ratio of 0.3, meaning Australia has an abundant energy source, which enable the
+            country to export these resources to other nations.
           </p>
         </div>
-      </div>
-      <div class="vertical-3">
-        <div id="scatterplot" , class="scatterplot_container"></div>
+
       </div>
     </div>
-
-
   </div>
-
-
-
-
 
 
 
