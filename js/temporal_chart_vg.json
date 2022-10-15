@@ -123,6 +123,7 @@
                 {"field": "Gas Elec Per Capita", "type": "quantitative", "format": ",.2f"},
                 {"field": "Hydro Elec Per Capita", "type": "quantitative", "format": ",.2f"},
                 {"field": "Nuclear Elec Per Capita", "type": "quantitative", "format": ",.2f"},
+                {"field": "Oil Elec Per Capita", "type": "quantitative", "format": ",.2f"},
                 {"field": "Renewables Elec Per Capita", "type": "quantitative", "format": ",.2f"},
                 {"field": "Solar Elec Per Capita", "type": "quantitative", "format": ",.2f"},
                 {"field": "Wind Elec Per Capita", "type": "quantitative", "format": ",.2f"}
