@@ -38,6 +38,7 @@ hr{
 
 .scatterplot_container{
 	width: 100%;
+	margin-bottom: 20px;
 }
 
 .pie_chart_container{
@@ -213,3 +214,5 @@ p{
 .sub-row-bar-2{
 	grid-row: 2;
 }
+
+
