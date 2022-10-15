@@ -16,7 +16,9 @@
   "height": 600,
   "title": {
     "text": "Energy Consumption and Production",
-    "subtitle": "Data Presented in Log-Log Scale"
+    "subtitle": "Data Presented in Log-Log Scale",
+    "fontSize": 16,
+    "offset": 12
   },
   "params": [
     {

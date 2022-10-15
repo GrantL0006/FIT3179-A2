@@ -11,10 +11,12 @@
     }
   },
   "title": {
-    "text": "Electricity Generation Methods"
+    "text": "Electricity Generation Methods",
+    "fontSize": 16,
+    "offset": 8
   },
   "width": "container",
-  "height": 250,
+  "height": 225,
   "mark": "arc",
   "encoding": {
     "theta": {
@@ -54,4 +56,4 @@
       }
     }
   }
-}
+} 

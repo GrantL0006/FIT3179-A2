@@ -5,7 +5,11 @@
   },
   "width": "container",
   "height": 300,
-  "title": "Energy Consumption Parallel Plot",
+  "title": {
+    "text": "Energy Consumption Parallel Plot",
+    "fontSize": 16,
+    "offset": 12
+  },
   "transform": [
     {"filter": "datum['biofuel']"},
     {"window": [{"op": "count", "as": "index"}]},

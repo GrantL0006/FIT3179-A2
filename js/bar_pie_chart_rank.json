@@ -9,8 +9,11 @@
     }
   },
   "width": "container",
+  "height": 200, 
   "title": {
-    "text": "Top 10 Electricity Usage Country"
+    "text": "Top 10 Electricity Usage Country",
+    "fontSize": 16,
+    "offset": 8
   },
   "transform": [
     {

@@ -9,6 +9,8 @@
         "height": 150,
         "title": {
           "text": "Total Global Electricity Consumption (Per Capita)",
+          "fontSize": 16,
+          "offset": 12,
           "subtitle": "Use this chart to select time interval"
         },
         "params": [
@@ -40,7 +42,9 @@
         "width": "container",
         "title": {
           "text": "Electricity Consumption Sources (Per Capita)",
-          "subtitle": "Use legend to highlight sources"
+          "subtitle": "Use legend to highlight sources",
+          "fontSize": 16,
+          "offset": 12
         },
         "encoding": {
           "x": {
