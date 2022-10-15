@@ -23,7 +23,9 @@
 }
 
 .parallel_chart_container {
-	width: 105%;
+	margin-top: 10px;
+	width: 100%;
+	margin-bottom: 10px;
 }
 
 .heat_map_container {
