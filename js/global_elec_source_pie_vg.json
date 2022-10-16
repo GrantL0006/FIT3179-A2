@@ -25,7 +25,32 @@
     },
     "color": {
       "field": "Type",
-      "type": "nominal"
+      "type": "nominal",
+      "scale":{
+                "domain":[
+                  "biofuel",
+                  "coal",
+                  "gas",
+                  "hydro",
+                  "nuclear",
+                  "oil",
+                  "renewables",
+                  "solar",
+                  "wind"
+
+                ],
+                "range":[
+                  "#962038",
+                  "#d43138",
+                  "#f0663c",
+                  "#f69669",
+                  "#fdcb99",
+                  "#f1ef8e",
+                  "#abd9e9",
+                  "#74add1",
+                  "#4575b4"
+                ]
+              }
     },
     "order": {
       "field": "Percentage",
