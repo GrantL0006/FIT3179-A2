@@ -10,6 +10,10 @@ hr{
 	border-top: 1px solid rgb(230, 62, 32);
 }
 
+b{
+	color: rgb(230, 62, 32);
+}
+
 .energy_map_container{
 	width: 100%;
 	margin-bottom: 20px;
