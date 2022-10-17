@@ -40,7 +40,7 @@
   },
   "encoding": {
     "x": {
-      "title": "Total Electricity Consumption Per Capita",
+      "title": "Total Electricity Consumption Per Capita (kWh)",
       "field": "per_capita_electricity",
       "type": "quantitative"
     },
