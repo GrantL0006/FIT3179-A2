@@ -133,7 +133,7 @@
       "layer": [
         {
           "mark": {"type": "text", "style": "label"},
-          "encoding": {"text": {"aggregate": "max", "field": "max","format": ".2f"}}
+          "encoding": {"text": {"aggregate": "max", "field": "max","format": ",.2f"}}
         },
         {
           "mark": {
@@ -174,7 +174,7 @@
       "mark": {"type": "text", "style": "label"},
       "encoding": {
         "y": {"value": 150},
-        "text": {"aggregate": "min", "field": "mid", "format": ".2f"} 
+        "text": {"aggregate": "min", "field": "mid", "format": ",.2f"} 
       }
     }, 
         {

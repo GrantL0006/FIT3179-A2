@@ -75,7 +75,7 @@
             "width": {"value": 15},
             "height": {"scale": "y", "band": 1},
             "tooltip": [
-              {"signal": "{\"Country\": datum.Country, \"Year\": datum.Year_String,\"Carbon Eimission (MtCO₂e)\": datum.Pivot_Field_Values}"}
+              {"signal": "{\"Country\": datum.Country, \"Year\": datum.Year_String,\"Carbon Eimission (MtCO₂e)\": format(datum.Pivot_Field_Values,',.2f')}"}
             ]
           },
           "update": {
